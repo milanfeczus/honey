@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <h1>Dear Honey Jar🍯</h1>
+            <br/>
+            <br/>
+            <h2>I know I can be a difficult person and I know that you think my intentions are not clear, but I need to enlighten you on how much you mean to me and how much I want this, so if you feel the same way then I think you already see what you need to do!<br/><br/><span class="highlight">I love you so much!</span></h2>
+            <br/>
+            <br/>
+            <br/>
+            <img id="valentineImage" src="https://media.tenor.com/ns27oDL6PPIAAAAM/cats-cat-with-flower.gif" alt="Valentine's Day Image" style="max-width: 300px; height: auto;">
+            <br/>
+            <br/>
+            <br/>
+            <button id="yesButton">Online dinner, Friday, 19:00</button>
+            <button id="no">No</button>
+        </div>
+        <style>
+            body {
+                background-image: url(https://static.vecteezy.com/system/resources/thumbnails/022/528/768/small_2x/cute-heart-love-logo-icon-isolated-on-white-background-png.png);
+                background-size: 40%;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+                font-family: 'Playfair Display', serif;
+            }
+            div {
+                text-align: center;
+                vertical-align: middle;
+            }
+            h1 {
+                color: #000000;
+                font-weight: 1000;
+                font-size: 300%;
+            }
+            h2 {
+                color: #000000;
+            }
+            .highlight {
+                color: #efa0fa;
+                font-size: 150%;
+            }
+            button {
+                font-family: 'Playfair Display', serif;
+                font-size: 16px;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            #yesButton {
+                background-color: #efa0fa;
+                color: #fff;
+                margin-right: 10px;
+                margin-left: -140px;
+            }
+            #yesButton:hover {
+                background-color: #d680e0;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+            #no {
+                position: absolute;
+                background-color: #6e0707;
+                color: #fff;
+                margin-left: 10px;
+            }
+            #no:hover {
+                background-color: #8a0909;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+        </style>
+        <script>
+            document.getElementById("yesButton").addEventListener("click", celebrateYes);
+            function celebrateYes() {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                setTimeout(() => {
+                    alert("I love you! See you soon 🥰");
+                }, 1000);
+            }
+            var yesButton = document.getElementById("yesButton");
+            var no = document.getElementById("no");
+            var valentineImage = document.getElementById("valentineImage");
+            var noTexts = ["Are you sure?", "I think you should rethink this", "Pookie please", "Don't do this to me :(", "Maybe sleep on it and try again tomorrow", "I'm gonna cry", "Why are you chasing this button so hard", "Let love reach you honey", "I mean i made this whole thing only for this", "You don't mean it", "If you click no, I accept my fate:)"];
+            var imageSources = ["https://pbs.twimg.com/media/Fyk7XMnaEAI3PsB.jpg", "https://media.tenor.com/BP70qe8X0J8AAAAe/crycat-crying-cat.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9e71v7IfFLLS_1CfY2it3an-6XH1uROjTfU5c88AwRL8aRkqAYDmoFrm9gpbUqwNameo&usqp=CAU", "https://i.pinimg.com/736x/cb/d8/3b/cbd83b534a315e809a9da2b8cd3ac3bf.jpg", "https://i.pinimg.com/222x/52/a9/44/52a94478ee4e05b734b0a0091d9a1387.jpg", "https://media.tenor.com/Y3j6d3RoSEoAAAAM/sad-cat-content-aware-scale.gif", "https://content.imageresizer.com/images/memes/Sad-Cat-Looking-At-Phone-meme-4.jpg", "https://media.tenor.com/mzeS2ySalF4AAAAM/yikes-cat.gif"];
+            
+            no.addEventListener("mouseover", change);
+            
+            function change() {
+                var randomIndex = Math.floor(Math.random() * noTexts.length);
+                var randomText = noTexts[randomIndex];
+                no.innerText = randomText;
+                var i = Math.floor(Math.random() * (window.innerWidth - no.offsetWidth));
+                var j = Math.floor(Math.random() * (window.innerHeight - no.offsetHeight));
+                no.style.left = i + "px";
+                no.style.top = j + "px";
+                var currentWidth = yesButton.offsetWidth;
+                var currentHeight = yesButton.offsetHeight
+                yesButton.style.width = currentWidth + 30 + "px";
+                yesButton.style.height = currentHeight + 10 + "px";
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+            }
+        </script>
+    </body>
+</html>
